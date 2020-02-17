@@ -4,17 +4,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddUserComponent } from '../../user/add-user/add-user.component';
 
-export class Employee{
-  constructor(
-    public firstName:string,
-    public lastName:string,
-    public email:string,
-    public status:string,
-    public password:string,
-    public confirmPassword:string,
-    public userProfiles: Array<object> = [],
-  ) {}
+export interface Employee{
+ 
+     firstName:string,
+     lastName:string,
+     email:string,
+     status:string,
+     password:string,
+     confirmPassword:string,
+     UserRoleEntity :{
+      type :string
+     }
+ 
 }
+
 
 
 @Injectable({

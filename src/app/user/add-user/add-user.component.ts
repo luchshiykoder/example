@@ -65,7 +65,7 @@ export class AddUserComponent implements OnInit {
       
     ];
   }
-  user: Employee = new Employee("", "", "", "", "","",this.userProfiles1);
+  user: Employee;
 
   onSubmit() {
     this.submitted = true;    
