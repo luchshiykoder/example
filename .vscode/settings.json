@@ -1,0 +1,6 @@
+{
+    "vsicons.presets.angular": true,
+    "typescript.check.tscVersion": true,
+    "svn.ignoreMissingSvnWarning": true,
+    "maven.view": "hierarchical"
+}

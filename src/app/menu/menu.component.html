@@ -1,0 +1,15 @@
+
+<header *ngIf="showMenu">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="col-sm-8">
+            <a href="/welcome/admin" class="navbar-brand">
+                <img src="/assets/images/armezologo.png"></a>
+                <button id="show-hide" class="btn btn-warning" [class.alert-primary]="alertPrimary">Add Class me!</button>
+                 &nbsp;<button  class="btn btn-danger" (click)="addClass()">Click me!</button>
+        
+        </div>
+        <div class="col-sm-4">
+        <span class="pull-right text-light">Welcome <i class="fa fa-user-secret" aria-hidden="true"></i>{{name}}</span>
+     </div>
+    </nav>
+</header>

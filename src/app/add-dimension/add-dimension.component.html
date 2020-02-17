@@ -1,0 +1,35 @@
+<section class="main-content">
+    <div class="row">
+        <div class="col-md-6  ">
+            <h3>Add Dimension</h3>    
+            <hr>
+            <form [formGroup]="adddimensionvalue"  (ngSubmit)="onSubmit()" >
+                       
+                <div class="form-group">
+                    <label> Dimension Add</label>
+                    <input type="text" class="form-control" formControlName="AddDimension" [ngClass]="{ 'is-invalid': submitted &amp;&amp; adddimensionvalue.controls.AddDimension.errors }"/>
+                    <div *ngIf="submitted &amp;&amp; adddimensionvalue.controls.AddDimension.errors" class="text-danger">
+                        <div *ngIf="adddimensionvalue.controls.AddDimension.errors.required">Add Dimension is required</div>
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="selects">Status </label>
+                    <select formControlName="select" id="select" class="form-control">
+                        <option *ngFor="let select of selects; let i = index" [value]="selects[i].id" >
+                            {{selects[i].name}}
+                        </option>
+                    </select>
+                    <div *ngIf="submitted &amp;&amp; adddimensionvalue.controls.select.errors" class="text-danger">
+                        <div *ngIf="adddimensionvalue.controls.select.errors.required">Status is required</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <button class="btn btn-info"><i class="fa fa-user-plus" aria-hidden="true"></i> Add</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</section>

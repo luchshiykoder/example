@@ -1,0 +1,108 @@
+
+<section class="main-content">
+        <div class="row">
+            <div class="col-md-6  ">
+                <h3>Demographics </h3>    
+                <hr>
+                <div class="card" style="width:400px">
+                       
+                        <div class="card-body">
+                          <h4 class="card-title">Select Demographics for User</h4>
+                          <form [formGroup]="SelectCompanyform"  (ngSubmit)="onSubmit()" >
+                       
+                                <div class="form-group">
+                                        <label for="selects">Select Company </label>
+                                        <select formControlName="SelectCompany" id="SelectCompany" class="form-control">
+                                            <option *ngFor="let SelectCompany of SelectCompanys; let i = index" [value]="SelectCompanys[i].id" >
+                                                {{SelectCompanys[i].name}}
+                                            </option>
+                                        </select>
+                                        <div *ngIf="submitted &amp;&amp; SelectCompanyform.controls.SelectCompany.errors" class="text-danger">
+                                            <div *ngIf="SelectCompanyform.controls.SelectCompany.errors.required">Status is required</div>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                    <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches">
+                                            <label class="custom-control-label" for="customSwitches">Emp Id</label>
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches1">
+                                            <label class="custom-control-label" for="customSwitches1">Emp Id</label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches2">
+                                            <label class="custom-control-label" for="customSwitches2">Emp Name</label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches3">
+                                            <label class="custom-control-label" for="customSwitches3">Emp Email</label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches4">
+                                            <label class="custom-control-label" for="customSwitches4">Emp Contact Number</label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitches5">
+                                            <label class="custom-control-label" for="customSwitches5">Date Of Birth</label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitches6">
+                                                <label class="custom-control-label" for="customSwitches6">Gender</label>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="customSwitches7">
+                                                    <label class="custom-control-label" for="customSwitches7">Date Of Joining</label>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitches8">
+                                                        <label class="custom-control-label" for="customSwitches8">Date Of Resign</label>
+                                                        </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitches9">
+                                                            <label class="custom-control-label" for="customSwitches9">Last day in Company</label>
+                                                            </div>
+                                                    </div>
+
+
+                                    
+                                    <!-- <div class="form-group">
+                                            <input type="checkbox" id="toggle-button-checkbox"
+>
+                                          <label class="toggle-button-switch"  
+                                            for="toggle-button-checkbox"></label>
+                                          <div class="toggle-button-text">
+                                            <div class="toggle-button-text-on">ON</div>
+                                            <div class="toggle-button-text-off">OFF</div>
+                                          </div>  
+                                    </div> -->
+                             
+                                <div>
+                                    <button class="btn btn-primary">Assign </button>
+                                </div>
+                            </form> 
+                         
+                        </div>
+                      </div>
+            </div>
+        </div>
+    </section>

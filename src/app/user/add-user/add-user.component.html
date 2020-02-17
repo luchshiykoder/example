@@ -1,0 +1,77 @@
+<section class="main-content">
+    <div class="row">
+        <div class="col-md-6  ">
+                <h3>Add-user works!</h3>    
+                <hr>
+                <form [formGroup]="adduserForm" (ngSubmit)="onSubmit()">
+                       
+                    <div class="form-group">
+                        <label>First Name </label>
+                        <input [(ngModel)]="user.firstName" type="text" class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted &amp;&amp; adduserForm.controls.firstName.errors }"/>
+                        <div *ngIf="submitted &amp;&amp; adduserForm.controls.firstName.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name </label>
+                        <input  [(ngModel)]="user.lastName" type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted &amp;&amp; adduserForm.controls.lastName.errors }"/>
+                        <div *ngIf="submitted &amp;&amp; adduserForm.controls.lastName.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email </label>
+                        <input  [(ngModel)]="user.email" type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; adduserForm.controls.Email.errors }" />
+                        <div *ngIf="submitted &amp;&amp; adduserForm.controls.Email.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.Email.errors.required">Email is required</div>
+                            <div *ngIf="adduserForm.controls.Email.errors.Email">Email must be a valid email address</div>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="Statuse">Status </label>
+                        <select formControlName="Status"  [(ngModel)]="user.status" id="Status" class="form-control">
+                            <option *ngFor="let Status of Statuse; let i = index" [value]="Statuse[i].id" >
+                              {{Statuse[i].name}}
+                            </option>
+                        </select>
+                        <div *ngIf="submitted &amp;&amp; adduserForm.controls.Status.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.Status.errors.required">Status is required</div>
+                        </div>
+                    </div>
+ 
+                    <div class="form-group">
+                        <label>Password </label>
+                        <input  [(ngModel)]="user.password" type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; adduserForm.controls.Password.errors }"  />
+                    <div *ngIf="submitted &amp;&amp; adduserForm.controls.Password.errors" class="text-danger">
+                        <div *ngIf="adduserForm.controls.Password.errors.required">Password is required</div>
+                        <div *ngIf="adduserForm.controls.Password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password </label>
+                        <input  [(ngModel)]="user.confirmPassword" type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted  &amp;&amp; adduserForm.controls.confirmPassword.errors }" />
+                        <div *ngIf="submitted  &amp;&amp; adduserForm.controls.confirmPassword.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="adduserForm.controls.confirmPassword.errors.minlength">Passwords must match</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userProfiles">User Profile </label>
+                        <select formControlName="userProfiles"  [(ngModel)]="user.userProfiles" (change)="dataChanged($event)" id="userProfiles" class="form-control">
+                            <option *ngFor="let Status of userProfiles; let i = index" [value]="userProfiles[i].name" >
+                              {{userProfiles[i].name}}
+                            </option>
+                        </select>
+                        <div *ngIf="submitted &amp;&amp; adduserForm.controls.userProfiles.errors" class="text-danger">
+                            <div *ngIf="adduserForm.controls.userProfiles.errors.required">UserProfiles is required</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="btn btn-info"><i class="fa fa-user-plus" aria-hidden="true"></i> Add User</button>
+                       
+                    </div>
+                </form>    
+        </div>
+    </div>
+</section> 

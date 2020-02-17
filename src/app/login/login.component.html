@@ -1,0 +1,32 @@
+<section >
+<div class="login-bg">
+  <div class="overlay-bg"></div>
+ 
+
+       <div class="login-block text-center">
+          <div class="col-sm-12 ">
+          <div class="login-form">
+              <img src="/assets/images/armezologo.png"><br><br>
+              
+              <div class="form-group">
+                  <h4><i class="fa fa-lock" aria-hidden="true"></i> <strong> Admin Login </strong> </h4>
+                  
+              </div>
+              <div class="alert alert-danger" *ngIf='invalidLogin'>{{errorMessage}}</div>
+              <div class="form-group">
+                  <input type="text" name="username" [(ngModel)]="username"  class="form-control" placeholder="Enter your User Name">
+              </div>
+              <div class="form-group">
+                  <input input type="password" name="password" [(ngModel)]="password"  class="form-control" placeholder="Enter your Password">
+             </div>
+
+            <!-- User Name : {{username}} -->
+            <!-- <button (click)=handleLogin() class="btn btn-success">Login</button> -->
+            <!-- <button (click)=handleBasicAuthLogin() class="btn btn-success">Login</button> -->
+            <button (click)=handleLogin() class="btn btn-primary">Login</button>
+          </div>
+      </div>
+  </div>
+
+</div>
+</section>

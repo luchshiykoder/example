@@ -1,0 +1,43 @@
+<section class="main-content">
+    <div class="row">
+        <div class="col-md-6  ">
+            <h3>Add Survey</h3>    
+            <hr>
+            <form [formGroup]="addsurveyform"  (ngSubmit)="onSubmit()" >
+                       
+                <div class="form-group">
+                    <label> Survey Name </label>
+                    <input type="text" class="form-control" formControlName="SurveyName" [ngClass]="{ 'is-invalid': submitted &amp;&amp; addsurveyform.controls.SurveyName.errors }"/>
+                    <div *ngIf="submitted &amp;&amp; addsurveyform.controls.SurveyName.errors" class="text-danger">
+                        <div *ngIf="addsurveyform.controls.SurveyName.errors.required">Survey Name  is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label> Select Dimension </label>
+                        <ng-multiselect-dropdown [placeholder]="Dimension" [data]="dropdownList" [class]="form-control"
+                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"
+                      >
+                      </ng-multiselect-dropdown>
+                      
+                </div>
+                
+                <div class="form-group">
+                    <label for="selects">Status </label>
+                    <select formControlName="select" id="select" class="form-control">
+                        <option *ngFor="let select of selects; let i = index" [value]="selects[i].id" >
+                            {{selects[i].name}}
+                        </option>
+                    </select>
+                    <div *ngIf="submitted &amp;&amp; addsurveyform.controls.select.errors" class="text-danger">
+                        <div *ngIf="addsurveyform.controls.select.errors.required">Status is required</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <button class="btn btn-info"><i class="fa fa-user-plus" aria-hidden="true"></i> Add</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</section>

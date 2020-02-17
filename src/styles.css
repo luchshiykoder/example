@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+.main-content{
+    margin-left: 230px;
+    max-height: 500px;
+    max-height: 750px;
+    padding: 90px 20px 20px;
+   
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+
+}
