@@ -3,22 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddUserComponent } from '../../user/add-user/add-user.component';
-
-export interface Employee{
- 
-     firstName:string,
-     lastName:string,
-     email:string,
-     status:string,
-     password:string,
-     confirmPassword:string,
-     UserRoleEntity :{
-      type :string
-     }
- 
-}
-
-
+import{Employee} from '../../model/Employee';
 
 @Injectable({
   providedIn: 'root'

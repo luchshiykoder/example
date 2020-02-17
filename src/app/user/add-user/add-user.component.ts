@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { UserService, Employee } from '../../service/user/user.service'
+import { UserService } from '../../service/user/user.service'
+import {Employee} from '../../model/Employee'
+import { type } from 'os';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -15,6 +17,22 @@ export class AddUserComponent implements OnInit {
   Statuse: any;
   userProfiles: Array<object> = [];
   userProfiles1: Array<object> = [];
+  
+  user: Employee={
+    firstName:"",
+    lastName:"",
+    email:"",
+    confirmPassword:"",
+    password:"",
+    status:"",
+    userRolesEntity:{
+     userRolesId:100,
+      type:"",
+      status:""
+    }
+
+};
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,15 +61,7 @@ export class AddUserComponent implements OnInit {
     }); 
 
   }
-  dataChanged(filterVal: any) {
-    if (filterVal == "0") {
-      console.log('profiles '+filterVal);
-    }     
-    else{
-      this.userProfiles1=filterVal.target.value;
-    }       
- }
-  getstatus() {
+    getstatus() {
     return [
       { id: '1', name: 'Active' },
       { id: '2', name: 'Inactive' }
@@ -65,15 +75,35 @@ export class AddUserComponent implements OnInit {
       
     ];
   }
-  user: Employee;
+
+
+  
+  dataChanged(filterVal: any) {
+    if (filterVal == "0") {
+      console.log('profiles '+filterVal);
+    }     
+    else{
+      this.userProfiles1=filterVal.target.value;
+      this.user.userRolesEntity.type=filterVal.target.value;
+      this.user.userRolesEntity.status="active"
+
+    }       
+ }
 
   onSubmit() {
     this.submitted = true;    
+ 
     console.log(this.adduserForm.value); 
+
+    console.log(this.user); 
+   
     if (this.adduserForm.invalid) {
       return;
+   
     }else if (this.adduserForm.valid) {   
     
+
+      
       this.UserService.createUser(this.user)
       .subscribe(
         data =>{console.log(data);
