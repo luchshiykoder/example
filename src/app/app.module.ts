@@ -30,6 +30,7 @@ import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { AddWelcomeMessageComponent } from './add-welcome-message/add-welcome-message.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
+import { PocListComponent } from './poc-list/poc-list.component';
 
 
 
@@ -55,7 +56,8 @@ import { SurveyListComponent } from './survey-list/survey-list.component';
     AddSurveyComponent,
     AddWelcomeMessageComponent,
     AddQuestionComponent,
-    SurveyListComponent
+    SurveyListComponent,
+    PocListComponent
    
   ],
   imports: [

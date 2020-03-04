@@ -16,16 +16,19 @@
                 </li>
                <li><a routerLink="/addcompany" class="nav-link"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Comppany</a></li>
                <li><a routerLink="/addpoc" class="nav-link"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add POC</a></li> 
-               <li><a routerLink="/demographics" class="nav-link"><i class="fa fa-pie-chart" aria-hidden="true"></i> Demographics </a></li> 
+               <!-- <li><a routerLink="/demographics" class="nav-link"><i class="fa fa-pie-chart" aria-hidden="true"></i> Demographics </a></li> 
                <li><a routerLink="/mappocsurvey" class="nav-link"><i class="fa  fa-map-marker" aria-hidden="true"></i> Map POC Survey </a></li> 
                <li><a routerLink="/filemanager" class="nav-link"><i class="fa  fa-file" aria-hidden="true"></i> File Manager </a></li> 
                <li><a routerLink="/adddimension" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Add Dimension</a></li> 
                <li><a routerLink="/addsurvey" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Add Survey</a></li> 
                <li><a routerLink="/addwelcomemessage" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Add Welcome Message</a></li> 
                <li><a routerLink="/addquestion" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Add Question</a></li> 
-               <li><a routerLink="/surveylist" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Survey List</a></li> 
-               <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link"><i class="fa fa-list" aria-hidden="true"></i> Todos</a></li>
+               <li><a routerLink="/surveylist" class="nav-link"><i class="fa  fa-plus" aria-hidden="true"></i> Survey List</a></li>  
+               <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link"><i class="fa fa-list" aria-hidden="true"></i> Todos</a></li>-->
                 <!--<li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>-->
+                <li>
+                    <a  routerLink="/pocList" class="nav-link"><i class="fa fa-pencil" aria-hidden="true"></i> Manager Poc </a>  
+                </li>
                 <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>  
            

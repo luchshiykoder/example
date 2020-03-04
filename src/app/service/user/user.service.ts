@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddUserComponent } from '../../user/add-user/add-user.component';
-import{Employee} from '../../model/Employee';
+import { Employee } from '../../model/Employee';
 
 @Injectable({
   providedIn: 'root'

@@ -7,10 +7,12 @@ export interface Employee {
     status:string,
     password:string,
     confirmPassword:string,
-    userRolesEntity:{
+    
+    userRolesEntity:[{
         userRolesId:number
         type:string,
         status:string
-    }
+        
+    }]
 
 }

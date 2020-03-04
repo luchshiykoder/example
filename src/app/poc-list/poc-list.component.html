@@ -1,0 +1,39 @@
+<section class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Manage-user works!</h3>    
+            <hr>
+               
+            <div style="margin:0px 0;">
+                <div class="alert alert-info"><b>Survey List</b></div>
+                
+                <div class="table-responsive">
+                    <table mdbTable bordered="true" class="table table-bordered ">
+                            <thead>
+                              <tr>
+                                <th>User id</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>                              
+                                <th>Status</th>
+                                <th>Email</th>
+                                <th>Action</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              
+                              <tr mdbTableCol *ngFor="let el of users | async; let i = index">
+                                <th scope="row">{{i+1}}</th>                               
+                                <td>{{el.firstName}}</td>
+                                <td>{{el.lastName}}</td>                              
+                                <td><span class="badge badge-success">{{el.status}}</span></td>
+                                <td>{{el.mail}}</td>
+                                <td><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{el.action}}</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

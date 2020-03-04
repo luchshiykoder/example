@@ -9,7 +9,7 @@ import { AddCompanyComponent } from '../../add-company/add-company.component';
   providedIn: 'root'
 })
 export class CompanyService {
-readonly url = 'http://localhost:8084/';  
+  readonly url = 'http://localhost:8084/';  
   public listCompany: CompanyModel[];
   
   constructor(private http:HttpClient) { }
@@ -25,7 +25,7 @@ readonly url = 'http://localhost:8084/';
     return this.http.get(`${API_URL}/company/comapnyList/`);
   }
 
-  CompanyList()  {  
+  CompanyList(){  
   this.http.get(this.url+'/company/comapnyList/').toPromise().
   then(result=>this.listCompany = result as CompanyModel[]) 
   } 
@@ -46,5 +46,4 @@ readonly url = 'http://localhost:8084/';
     console.log("Execute User Service")
     return this.http.post<CompanyModel>(`${API_URL}/company/addCompany/`,company,this.headers);
   }
-
 }

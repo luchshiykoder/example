@@ -56,12 +56,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="userProfiles">User Profile </label>
-                        <select formControlName="userProfiles"  [(ngModel)]="user.userProfiles" (change)="dataChanged($event)" id="userProfiles" class="form-control">
+                        <label for="userProfiles">User Profile</label>
+                      
+                        <select formControlName="userProfiles"  [(ngModel)]="user.userRolesEntity.type" (change)="dataChanged($event)" id="userProfiles" class="form-control">
                             <option *ngFor="let Status of userProfiles; let i = index" [value]="userProfiles[i].name" >
                               {{userProfiles[i].name}}
                             </option>
                         </select>
+
                         <div *ngIf="submitted &amp;&amp; adduserForm.controls.userProfiles.errors" class="text-danger">
                             <div *ngIf="adduserForm.controls.userProfiles.errors.required">UserProfiles is required</div>
                         </div>
@@ -69,7 +71,6 @@
                     
                     <div>
                         <button class="btn btn-info"><i class="fa fa-user-plus" aria-hidden="true"></i> Add User</button>
-                       
                     </div>
                 </form>    
         </div>

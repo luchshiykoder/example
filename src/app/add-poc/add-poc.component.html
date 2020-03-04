@@ -20,31 +20,32 @@
                         </div>
                     </div>
                     <div class="form-group">
-                            <label>POC Email</label>
-                            <input  [(ngModel)]="poc.pocEmail" type="text" class="form-control" formControlName="pocEmail" [ngClass]="{ 'is-invalid': submitted &amp;&amp; addpocform.controls.pocEmail.errors }"/>
-                            <div *ngIf="submitted &amp;&amp; addpocform.controls.pocEmail.errors" class="text-danger">     
-                                <div *ngIf="addpocform.controls.pocEmail.errors.required">POC Email is required</div>
-                                <div *ngIf="addpocform.controls.pocEmail.errors.Email">POC Email must be a valid email address</div>    
-                            </div>
-                    </div>
+                        <label>POC Email</label>
+                        <input  [(ngModel)]="poc.mail" type="text" class="form-control" formControlName="mail" [ngClass]="{ 'is-invalid': submitted &amp;&amp; addpocform.controls.mail.errors }"/>
+                        <div *ngIf="submitted &amp;&amp; addpocform.controls.mail.errors" class="text-danger">     
+                            <div *ngIf="addpocform.controls.mail.errors.required">POC Email is required</div>
+                            <div *ngIf="addpocform.controls.mail.errors.Email">POC Email must be a valid email address</div>    
+                        </div>
+                </div>
                     
                     
                     <div class="form-group">
                         <label for="selects">Company </label>
-                        <select name = "company" formControlName="company" [(ngModel)]="comp.Company" id="company" class="form-control">
+                        <select name = "company" formControlName="company" [(ngModel)]="comp.Company" (change)="dataChanged($event)" id="company" class="form-control">
                             <option value="undefined">Select Company</option>  
                             <option *ngFor="let c of company; let i = index" [value]="c.companyId" >
-                                {{c.companyName}}
+                                {{c.companyName}} 
                             </option>
                         </select>
                         <div *ngIf="submitted &amp;&amp; addpocform.controls.company.errors" class="text-danger">
                             <div *ngIf="addpocform.controls.company.errors.required">Company is required</div>
                         </div>
                     </div> 
+
                     <div class="form-group">
                             <label for="selects">Status </label>
-                            <select formControlName="status" id="status" [(ngModel)]="poc.status" class="form-control">
-                                <option value="undefined">Select Status </option> 
+                            <select formControlName="status" id="PocStatus" [(ngModel)]="poc.status" class="form-control">
+                                <!-- <option value="undefined">Select Status </option>  -->
                                 <option *ngFor="let st of status; let i = index" [value]="status[i].id" >
                                     {{status[i].name}}
                                 </option>
@@ -52,8 +53,7 @@
                             <div *ngIf="submitted &amp;&amp; addpocform.controls.status.errors" class="text-danger">
                                 <div *ngIf="addpocform.controls.status.errors.required">Status is required</div>
                             </div>
-                        </div> 
-                   
+                    </div>      
                     
                     <div>
                         <button class="btn btn-info"><i class="fa fa-user-plus" aria-hidden="true"></i> Add</button>

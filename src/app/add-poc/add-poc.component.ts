@@ -3,7 +3,10 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { of,Observable } from 'rxjs';
 import{CompanyModel} from '../model/company-model'
 import{PocModel} from '../model/poc-model'
+import{PocModelInterface} from '../model/PocModel'
 import{CompanyService} from '../service/company/company.service'
+import {PocService} from '../service/poc/poc.service'
+
 import { Router } from '@angular/router';
 
 
@@ -15,16 +18,31 @@ import { Router } from '@angular/router';
 export class AddPOCComponent implements OnInit {
     addpocform: FormGroup;
     submitted = false;
-    company:any = [];    
-    companyData:any
-    status =[];
+    company:any = []; 
+    status :any;
+  
+    comp: CompanyModel= new CompanyModel("","");
    
-    comp: CompanyModel= new CompanyModel("","","");
-    poc: PocModel = new PocModel("", "", "", "");
+    //poc: PocModel = new PocModel("", "", "", "");   
+    poc :PocModelInterface={
+      accesskey:"pass",
+      firstName:"",
+      lastName:"",
+      mail:"",
+      status:"",
+      companyEntity:{
+        companyId:0,
+        companyName:"",
+        logo:""
+      }
+    }
+
+
     constructor(
       private formBuilder: FormBuilder,
       private companyService:CompanyService, 
-      privaterouter:Router
+      private pocService:PocService, 
+      private router:Router
       ) { }
 
     ngOnInit() {
@@ -32,9 +50,11 @@ export class AddPOCComponent implements OnInit {
         this.addpocform = this.formBuilder.group({
         firstName: ['',Validators.required],
         lastName: ['', Validators.required],
-        pocEmail: ['', [Validators.required, Validators.email]],
+        mail: ['', [Validators.required, Validators.email]],
         company: ['',  Validators.required],
         status: ['',  Validators.required]
+        
+
       });       
     
     of(this.getstatus()).subscribe(status => {
@@ -45,9 +65,18 @@ export class AddPOCComponent implements OnInit {
     });  
   }
  
+  dataChanged(filterVal: any) {
+    if (filterVal == "0") {
+      console.log('data : '+filterVal);
+    }     
+    else{
+      this.poc.companyEntity.companyId=filterVal.target.value;
+          
+    }       
+ }
   getCompanyList() 
   {
-    console.log("getCompanyList");
+    console.log("getCompanyList : "+JSON.stringify(this.comp));
     this.companyService.retrieveAllCompany().subscribe(
       data => {
         this.company=data; 
@@ -68,13 +97,29 @@ export class AddPOCComponent implements OnInit {
 
     onSubmit() {
       this.submitted = true;
-
+      console.log(this.poc); 
+      console.log("JSON DATA "+JSON.stringify(this.poc));   
+     
       // stop the process here if form is invalid
       if (this.addpocform.invalid) {
           return;
+      }else{
+
+        this.pocService.createPoc(this.poc)
+      .subscribe(
+        data =>{console.log(data);
+         },
+        error => console.log(error));
+     // this.message = `User Created Successful!`;
+        this.gotoList();
+    }     
+       }
+       gotoList() {
+        this.router.navigate(['/pocList']);
       }
-      console.log(this.addpocform.value);
-      //alert('SUCCESS!!');
+     
     }
 
-}
+    
+
+

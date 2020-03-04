@@ -14,13 +14,13 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 export class AddCompanyComponent implements OnInit {
 
   addcompanyform: FormGroup;
-      submitted = false;
+    submitted = false;
     selects = [];  
     logo: String;    
     message:any;
     showMsg: boolean = false;
     
-    comp: CompanyModel = new CompanyModel("","","");
+    comp: CompanyModel = new CompanyModel("","");
 
     constructor(
       private formBuilder: FormBuilder,
@@ -118,7 +118,6 @@ export class AddCompanyComponent implements OnInit {
       if(this.addcompanyform.valid) {          
            console.log(' Company Create');
            console.log('companyName : ' + this.comp.companyName);
-           console.log('status : ' + this.comp.status);
            console.log('LOGO : ' + this.comp.logo);
    
    
@@ -132,7 +131,7 @@ export class AddCompanyComponent implements OnInit {
 
           console.log(this.addcompanyform.value);         
           this.addcompanyform.reset();
-          alert();
+          alert("Company Added Sucessfully..");
          
         
     }

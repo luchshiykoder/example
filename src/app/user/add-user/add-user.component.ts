@@ -16,7 +16,6 @@ export class AddUserComponent implements OnInit {
   message: string;
   Statuse: any;
   userProfiles: Array<object> = [];
-  userProfiles1: Array<object> = [];
   
   user: Employee={
     firstName:"",
@@ -25,12 +24,11 @@ export class AddUserComponent implements OnInit {
     confirmPassword:"",
     password:"",
     status:"",
-    userRolesEntity:{
+    userRolesEntity:[{
      userRolesId:100,
       type:"",
       status:""
-    }
-
+    }]
 };
 
 
@@ -83,34 +81,28 @@ export class AddUserComponent implements OnInit {
       console.log('profiles '+filterVal);
     }     
     else{
-      this.userProfiles1=filterVal.target.value;
-      this.user.userRolesEntity.type=filterVal.target.value;
-      this.user.userRolesEntity.status="active"
-
+      this.user.userRolesEntity[0].type=filterVal.target.value;
+      this.user.userRolesEntity[0].status="active"
     }       
  }
 
   onSubmit() {
     this.submitted = true;    
- 
-    console.log(this.adduserForm.value); 
-
-    console.log(this.user); 
-   
+     console.log(this.user);    
     if (this.adduserForm.invalid) {
       return;
    
-    }else if (this.adduserForm.valid) {   
-    
-
+    }else if (this.adduserForm.valid) {
       
+      console.log("JSON DATA "+JSON.stringify(this.user));
+
       this.UserService.createUser(this.user)
       .subscribe(
         data =>{console.log(data);
          },
         error => console.log(error));
-     // this.message = `User Created Successful!`;
-    //  this.gotoList();
+    //  /this.message = `User Created Successful!`;
+      this.gotoList();
     }     
   } 
   gotoList() {

@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { AsidemenuComponent } from './asidemenu/asidemenu.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { AddPOCComponent } from './add-poc/add-poc.component';
+import { PocListComponent } from './poc-list/poc-list.component';
 import { DemographicsComponent } from './demographics/demographics.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
 import { MapPOCSurveyComponent } from './map-pocsurvey/map-pocsurvey.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
 
   { path: 'addcompany', component: AddCompanyComponent },
   { path: 'addpoc', component: AddPOCComponent},
+  { path: 'pocList', component: PocListComponent},
   { path: 'demographics', component: DemographicsComponent },
   { path: 'filemanager', component: FileManagerComponent},
   { path: 'mappocsurvey', component: MapPOCSurveyComponent},
